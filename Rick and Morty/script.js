@@ -44,6 +44,7 @@ if (pageMain && pageMain.length > 0) {
     if (pageMain[0].parentNode) {
         pageMain[0].parentNode.style.margin = '0';
         pageMain[0].parentNode.style.border = '0';
+        pageMain[0].parentNode.style.color = 'black';
     }
 }
 
@@ -62,8 +63,9 @@ if (resizableContainer && resizableContainer.length > 0) {
     resizableContainer[0].style.borderShadow = '0';
 }
 
-const title = "S01E01 - Pilot";
-const desc = ```Rick takes Morty on a trip to another dimension to find seeds to "mega-trees," while Jerry and Beth argue over Rick's influence over their son.```;
+const episode = "S01E01";
+const title = "Pilot";
+const desc = `Rick takes Morty on a trip to another dimension to find seeds to "mega-trees," while Jerry and Beth argue over Rick's influence over their son.`;
 
 const firstHeading = document.getElementById('firstHeading');
 if (firstHeading && firstHeading.hasChildNodes) {
@@ -71,12 +73,13 @@ if (firstHeading && firstHeading.hasChildNodes) {
 
     childNodes.forEach(function (child) {
         if (child.nodeType === Node.ELEMENT_NODE) {
-            child.textContent = title;
+            child.textContent = episode + ' - ' + title;
         }
     });
+
+    var descElement = document.createElement('p');
+    descElement.innerHTML = desc;
+
+    firstHeading.parentNode.insertBefore(descElement, firstHeading.nextSibling);
 }
-
-
-
-
 
