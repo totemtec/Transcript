@@ -59,9 +59,14 @@ if (resizableContainer && resizableContainer.length > 0) {
     resizableContainer[0].style.width = '100%';
     resizableContainer[0].style.margin = '0';
     resizableContainer[0].style.top = '0';
-    resizableContainer[0].style.border = '0';
-    resizableContainer[0].style.borderShadow = '0';
 }
+
+const page = document.getElementsByClassName('page has-right-rail');
+if (page && page.length > 0) {
+    page[0].style.border = 'none';
+    page[0].style.boxShadow = 'none';
+}
+
 
 const episode = "S01E01";
 const title = "Pilot";
