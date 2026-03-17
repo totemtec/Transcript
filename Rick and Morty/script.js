@@ -68,9 +68,32 @@ if (page && page.length > 0) {
 }
 
 
-const episode = "S01E01";
-const title = "Pilot";
-const desc = `Rick takes Morty on a trip to another dimension to find seeds to "mega-trees," while Jerry and Beth argue over Rick's influence over their son.`;
+const content = document.getElementById('mw-content-text');
+
+if (content) {
+    const firstDiv = content.querySelector(':scope > div');
+    if (firstDiv) {
+        const firstP = firstDiv.querySelector(':scope > p');
+        if (firstP) {
+            const firstContent = firstP.innerHTML;
+            if (firstContent.trimStart("This article is a")) {
+                firstP.remove();
+            }
+        }
+    }
+}
+
+
+const paragraphs = document.querySelectorAll('.page-content p');
+
+paragraphs.forEach((p) => {
+    p.style.margin = '0';
+});
+
+
+const episode = "S01E11";
+const title = "Ricksy Business";
+const desc = `When Jerry and Beth go away to take part in a re-creation of the sinking of the Titanic, Rick and Summer throw a party that gets out of control.`;
 
 const firstHeading = document.getElementById('firstHeading');
 if (firstHeading && firstHeading.hasChildNodes) {
@@ -87,4 +110,3 @@ if (firstHeading && firstHeading.hasChildNodes) {
 
     firstHeading.parentNode.insertBefore(descElement, firstHeading.nextSibling);
 }
-
